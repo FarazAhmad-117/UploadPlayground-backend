@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const { BlobServiceClient } = require("@azure/storage-blob");
 const path = require("path");
+const logger = require("morgan");
 
 const app = express();
 app.use(
@@ -13,6 +14,7 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(logger("common"));
 
 // Connect to MongoDB with better error handling
 mongoose
